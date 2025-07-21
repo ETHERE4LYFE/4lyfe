@@ -1,0 +1,172 @@
+/* estilo.css */
+
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  color: #eee;
+}
+
+/* Fondo general oscuro */
+body {
+  background-color: #121212;
+  overflow-x: hidden;
+}
+
+/* Portada */
+.portada {
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;      /* Evita barras de scroll si la imagen es más grande */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #000;
+  cursor: pointer;
+  position: relative;
+}
+
+.imagen-portada {
+  min-width: 100%;
+  min-height: 100%;
+  object-fit: cover;    /* Hace que la imagen cubra todo el contenedor sin distorsión */
+  filter: drop-shadow(0 0 8px #fff);
+  transition: transform 0.3s ease;
+}
+
+.imagen-portada:hover {
+  transform: scale(1.05);
+  filter: drop-shadow(0 0 15px #fff);
+}
+
+/* Sección de stock */
+.stock-section {
+  position: relative;
+  padding: 60px 40px;
+  background: #181818 url('../images/stock.jpg') no-repeat center center / cover;
+  min-height: 100vh;
+}
+
+/* Fondo stock con filtro oscuro para contraste */
+.fondo-stock {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  opacity: 0.15;
+  z-index: -1;
+}
+
+/* Contenedor de productos */
+.contenedor-stock {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 40px;
+  padding-bottom: 80px;
+}
+
+/* Producto individual */
+.producto {
+  background: rgba(20, 20, 20, 0.8);
+  padding: 20px;
+  border: 1px solid #333;
+  border-radius: 12px;
+  box-shadow: 0 0 15px rgba(255,255,255,0.05);
+  transition: box-shadow 0.3s ease;
+  cursor: default;
+}
+
+.producto:hover {
+  box-shadow: 0 0 20px 2px #fff;
+}
+
+/* Carrusel: imágenes dentro de cada producto */
+.carrusel {
+  display: flex;
+  gap: 10px;
+  overflow-x: auto;
+  scrollbar-width: thin;
+  scrollbar-color: #555 transparent;
+  margin-bottom: 15px;
+}
+
+.carrusel::-webkit-scrollbar {
+  height: 6px;
+}
+
+.carrusel::-webkit-scrollbar-thumb {
+  background: #555;
+  border-radius: 10px;
+}
+
+.carrusel a img {
+  height: 150px;
+  border-radius: 10px;
+  object-fit: cover;
+  border: 2px solid transparent;
+  transition: border-color 0.3s ease;
+}
+
+.carrusel a img:hover {
+  border-color: #fff;
+  filter: brightness(1.1);
+}
+
+/* Texto del producto */
+.producto h2 {
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-bottom: 6px;
+  letter-spacing: 1px;
+  color: #eee;
+}
+
+.producto p {
+  font-size: 1rem;
+  margin-bottom: 4px;
+  color: #ccc;
+}
+
+/* Lightbox ajustes opcionales */
+.lb-data .lb-number {
+  color: #ddd !important;
+}
+
+.lb-close, .lb-next, .lb-prev {
+  filter: invert(100%);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .producto {
+    padding: 15px;
+  }
+  .carrusel a img {
+    height: 120px;
+  }
+  .portada {
+    height: 60vh;
+  }
+  .imagen-portada {
+    max-width: 200px;
+  }
+}
+
+@media (max-width: 480px) {
+  .contenedor-stock {
+    grid-template-columns: 1fr;
+    padding: 20px;
+  }
+  .carrusel {
+    gap: 8px;
+  }
+  .carrusel a img {
+    height: 100px;
+  }
+}

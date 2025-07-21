@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>etheere4l</title>
+  <link rel="stylesheet" href="estilo.css" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/css/lightbox.min.css" rel="stylesheet" />
+  <style>
+    /* Estilos para la pantalla de acceso */
+    .pantalla-acceso {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100vw;
+      height: 100vh;
+      background-color: #000;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+    }
+
+    .pantalla-acceso img {
+      width: 200px;
+      margin-bottom: 30px;
+      filter: drop-shadow(0 0 10px #fff);
+    }
+
+    .pantalla-acceso input {
+      padding: 10px;
+      font-size: 16px;
+      border: none;
+      border-radius: 5px;
+      margin-bottom: 15px;
+      outline: none;
+      background-color: #222;
+      color: white;
+      width: 200px;
+      text-align: center;
+      text-transform: uppercase;
+    }
+
+    .pantalla-acceso button {
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: white;
+      color: black;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: bold;
+      letter-spacing: 1px;
+    }
+
+    .pantalla-acceso p {
+      color: red;
+      margin-top: 10px;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Pantalla de acceso -->
+  <div class="pantalla-acceso" id="acceso">
+    <img src="images/logo.png" alt="etheere4l Logo" />
+    <input type="password" id="clave" placeholder="Contraseña" />
+    <button onclick="validar()">Entrar</button>
+    <p id="mensaje"></p>
+  </div>
+
+  <!-- Contenido normal de tu página -->
+  <a href="#seccion2">
+    <section class="portada">
+      <img src="images/logo.png" alt="Portada" class="imagen-portada" />
+    </section>
+  </a>
+
+  <section id="seccion2" class="stock-section">
+    <img src="images/stock.jpg" alt="Fondo Stock" class="fondo-stock" />
+
+    <div class="contenedor-stock">
+
+      <!-- Pulsera CH #1 -->
+      <div class="producto">
+        <div class="carrusel">
+          <a href="imagesPLSRAS/pls.2png.png" data-lightbox="pulsera1" data-title="Pulsera CH 1">
+            <img src="imagesPLSRAS/pls.2png.png" alt="Pulsera CH 1" />
+          </a>
+          <a href="imagesPLSRAS/pls3.png" data-lightbox="pulsera1" data-title="Pulsera CH 2">
+            <img src="imagesPLSRAS/pls3.png" alt="Pulsera CH 2" />
+          </a>
+          <a href="imagesPLSRAS/pls4.png" data-lightbox="pulsera1" data-title="Pulsera CH 3">
+            <img src="imagesPLSRAS/pls4.png" alt="Pulsera CH 3" />
+          </a>
+          <a href="imagesPLSRAS/pulsera.png" data-lightbox="pulsera1" data-title="Pulsera CH 4">
+            <img src="imagesPLSRAS/pulsera.png" alt="Pulsera CH 4" />
+          </a>
+        </div>
+        <h2>Pulsera CH (modelo #1)</h2>
+        <p>$750 MXN</p>
+        <p>Medida: 18 cm</p>
+      </div>
+
+      <!-- Pulsera CH #2 -->
+      <div class="producto">
+        <div class="carrusel">
+          <a href="imagesPLSRAS2/plsra.png" data-lightbox="pulsera2" data-title="Pulsera CH 1">
+            <img src="imagesPLSRAS2/plsra.png" alt="Pulsera CH 1" />
+          </a>
+          <a href="imagesPLSRAS2/plsra1.png" data-lightbox="pulsera2" data-title="Pulsera CH 2">
+            <img src="imagesPLSRAS2/plsra1.png" alt="Pulsera CH 2" />
+          </a>
+        </div>
+        <h2>Pulsera CH (modelo #2)</h2>
+        <p>$890 MXN</p>
+        <p>Medida: 19 cm</p>
+      </div>
+
+      <!-- Lentes CH #1 -->
+      <div class="producto">
+        <div class="carrusel">
+          <a href="imagesLNTS/lentesch1.png" data-lightbox="lentes1" data-title="Lentes CH 1">
+            <img src="imagesLNTS/lentesch1.png" alt="Lentes CH 1" />
+          </a>
+          <a href="imagesLNTS/lentesch2.png" data-lightbox="lentes1" data-title="Lentes CH 2">
+            <img src="imagesLNTS/lentesch2.png" alt="Lentes CH 2" />
+          </a>
+        </div>
+        <h2>Lentes CH (modelo #1)</h2>
+        <p>$1200 MXN</p>
+        <p>Talla única</p>
+      </div>
+
+      <!-- Lentes CH #2 -->
+      <div class="producto">
+        <div class="carrusel">
+          <a href="imagesLNTS2/lnts.png" data-lightbox="lentes2" data-title="Lentes CH 1">
+            <img src="imagesLNTS2/lnts.png" alt="Lentes CH 1" />
+          </a>
+          <a href="imagesLNTS/lentesch2.png" data-lightbox="lentes2" data-title="Lentes CH 2">
+            <img src="imagesLNTS/lentesch2.png" alt="Lentes CH 2" />
+          </a>
+        </div>
+        <h2>Lentes CH (modelo #2)</h2>
+        <p>$1200 MXN</p>
+        <p>Talla única</p>
+      </div>
+
+      <!-- Lentes CH #3 -->
+      <div class="producto">
+        <div class="carrusel">
+          <a href="imagesLNTS3/lnts.png" data-lightbox="lentes3" data-title="Lentes CH 1">
+            <img src="imagesLNTS3/lnts.png" alt="Lentes CH 1" />
+          </a>
+          <a href="imagesLNTS/lentesch2.png" data-lightbox="lentes3" data-title="Lentes CH 2">
+            <img src="imagesLNTS/lentesch2.png" alt="Lentes CH 2" />
+          </a>
+        </div>
+        <h2>Lentes CH (modelo #3)</h2>
+        <p>$1200 MXN</p>
+        <p>Talla única</p>
+      </div>
+
+      <!-- Cadena CH #1 -->
+      <div class="producto">
+        <div class="carrusel">
+          <a href="imagesCDNS\cdnas1.png" data-lightbox="cadena1" data-title="Cadena CH 1">
+            <img src="imagesCDNS\cdnas1.png" alt="Cadena CH 1" />
+          </a>
+          <a href="imagesCDNS\cdns21.png" data-lightbox="cadena1" data-title="Cadena CH 2">
+            <img src="imagesCDNS\cdns21.png" alt="Cadena CH 2" />
+          </a>
+          <a href="imagesCDNS\cdns.png.jpg" data-lightbox="cadena1" data-title="Cadena CH 3">
+            <img src="imagesCDNS\cdns.png.jpg" alt="Cadena CH 3" />
+          </a>
+          <a href="imagesCDNS\cdns1.png.jpg" data-lightbox="cadena1" data-title="Cadena CH 4">
+            <img src="imagesCDNS\cdns1.png.jpg" alt="Cadena CH 4" />
+          </a>
+        </div>
+        <h2>Cadena CH (modelo #1)</h2>
+        <p>$980 MXN</p>
+        <p>Medida: 55 cm</p>
+      </div>
+
+      <!-- Cadena CH #2 -->
+      <div class="producto">
+        <div class="carrusel">
+          <a href="imagesCDNS2\cdns.4.png" data-lightbox="cadena1" data-title="Cadena CH 1">
+            <img src="imagesCDNS2\cdns.4.png" alt="Cadena CH 1" />
+          </a>
+          <a href="imagesCDNS2\cdns.png" data-lightbox="cadena1" data-title="Cadena CH 2">
+            <img src="imagesCDNS2\cdns.png" alt="Cadena CH 2" />
+          </a>
+          <a href="imagesCDNS2\cdns1.png" data-lightbox="cadena1" data-title="Cadena CH 3">
+            <img src="imagesCDNS2\cdns1.png" alt="Cadena CH 3" />
+          </a>
+          <a href="imagesCDNS2\cdns3.png" data-lightbox="cadena1" data-title="Cadena CH 4">
+            <img src="imagesCDNS2\cdns3.png" alt="Cadena CH 4" />
+          </a>
+          <a href="imagesCDNS2\cdns2.png" data-lightbox="cadena1" data-title="Cadena CH 5">
+            <img src="imagesCDNS2\cdns2.png" alt="Cadena CH 5" />
+          </a>
+        </div>
+        <h2>Cadena CH (modelo #2)</h2>
+        <p>$980 MXN</p>
+        <p>Medida: 55 cm</p>
+      </div>
+
+      <!-- Anillo CH #1 -->
+      <div class="producto">
+        <div class="carrusel">
+          <a href="imagesANLLS/anillos.png" data-lightbox="anillo1" data-title="Anillo CH 1">
+            <img src="imagesANLLS/anillos.png" alt="Anillo CH 1" />
+          </a>
+          <a href="imagesANLLS/anillos1.png" data-lightbox="anillo1" data-title="Anillo CH 2">
+            <img src="imagesANLLS/anillos1.png" alt="Anillo CH 2" />
+          </a>
+          <a href="imagesANLLS/anillos2.png" data-lightbox="anillo1" data-title="Anillo CH 3">
+            <img src="imagesANLLS/anillos2.png" alt="Anillo CH 3" />
+          </a>
+          <a href="imagesANLLS/anillos3.png" data-lightbox="anillo1" data-title="Anillo CH 4">
+            <img src="imagesANLLS/anillos3.png" alt="Anillo CH 4" />
+          </a>
+          <a href="imagesANLLS/anillos4.png" data-lightbox="anillo1" data-title="Anillo CH 5">
+            <img src="imagesANLLS/anillos4.png" alt="Anillo CH 5" />
+          </a>
+        </div>
+        <h2>Anillo CH (modelo #1)</h2>
+        <p>$670 MXN</p>
+        <p>Talla: 7 US</p>
+      </div>
+
+      <!-- Anillo CH #2 -->
+      <div class="producto">
+        <div class="carrusel">
+          <a href="imagesANLLS2\anlls3.png" data-lightbox="anillo2" data-title="Anillo CH 1">
+            <img src="imagesANLLS2\anlls3.png" alt="Anillo CH 2" />
+          </a>
+        </div>
+        <h2>Anillo CH (modelo #2)</h2>
+        <p>$690 MXN</p>
+        <p>Talla: 8 US</p>
+      </div>
+
+    </div>
+  </section>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/js/lightbox.min.js"></script>
+  <script>
+    function validar() {
+      const clave = document.getElementById("clave").value.toUpperCase();
+      const acceso = document.getElementById("acceso");
+      const mensaje = document.getElementById("mensaje");
+
+      if (clave === "ETHERE4LYFE") {
+        acceso.style.display = "none";
+      } else {
+        mensaje.textContent = "Contraseña incorrecta.";
+      }
+    }
+  </script>
+</body>
+</html>
