@@ -1,0 +1,185 @@
+/* estilo.css */
+
+/* Reset básico mejorado para móviles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  color: #eee;
+  -webkit-text-size-adjust: 100%; /* Evita zoom automático en iOS */
+}
+
+/* Fondo general oscuro */
+body {
+  background-color: #121212;
+  overflow-x: hidden;
+  touch-action: manipulation; /* Mejora la respuesta táctil */
+}
+
+/* Portada optimizada para móviles */
+.portada {
+  height: 60vh; /* Reducida para móviles */
+  width: 100vw;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #000;
+  cursor: pointer;
+  position: relative;
+}
+
+.imagen-portada {
+  width: 80%; /* Ajuste para móviles */
+  max-width: 300px; /* Límite máximo */
+  height: auto;
+  object-fit: contain; /* Cambiado a contain para mejor visualización */
+  filter: drop-shadow(0 0 8px #fff);
+  transition: transform 0.3s ease;
+}
+
+.imagen-portada:hover {
+  transform: scale(1.05);
+  filter: drop-shadow(0 0 15px #fff);
+}
+
+/* Sección de stock optimizada */
+.stock-section {
+  position: relative;
+  padding: 30px 15px; /* Reducido padding para móviles */
+  background: #181818 url('../images/stock.jpg') no-repeat center center / cover;
+  min-height: 100vh;
+}
+
+/* Contenedor de productos ajustado */
+.contenedor-stock {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr; /* Una columna en móviles */
+  gap: 25px; /* Espacio reducido */
+  padding-bottom: 40px;
+}
+
+/* Producto individual optimizado */
+.producto {
+  background: rgba(20, 20, 20, 0.8);
+  padding: 15px;
+  border: 1px solid #333;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(255,255,255,0.05);
+  transition: box-shadow 0.3s ease;
+  cursor: default;
+}
+
+/* Carrusel mejorado para touch */
+.carrusel {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory; /* Mejor desplazamiento en móviles */
+  -webkit-overflow-scrolling: touch; /* Scroll suave en iOS */
+  scrollbar-width: none; /* Ocultar scrollbar en móviles */
+  margin-bottom: 12px;
+}
+
+.carrusel::-webkit-scrollbar {
+  display: none; /* Ocultar scrollbar en WebKit */
+}
+
+.carrusel a img {
+  height: 120px; /* Tamaño reducido para móviles */
+  width: auto;
+  scroll-snap-align: start; /* Alineación para scroll suave */
+  border-radius: 8px;
+  object-fit: cover;
+  border: 2px solid transparent;
+  transition: border-color 0.3s ease;
+}
+
+/* Texto del producto ajustado */
+.producto h2 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 6px;
+  letter-spacing: 0.5px;
+}
+
+.producto p {
+  font-size: 0.9rem;
+  margin-bottom: 4px;
+}
+
+/* Pantalla de acceso optimizada */
+.pantalla-acceso {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #000;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  padding: 20px;
+}
+
+.pantalla-acceso img {
+  width: 150px; /* Reducido para móviles */
+  margin-bottom: 20px;
+}
+
+.pantalla-acceso input {
+  width: 100%;
+  max-width: 250px; /* Ancho máximo */
+}
+
+/* Media queries ajustadas */
+@media (min-width: 480px) {
+  .contenedor-stock {
+    grid-template-columns: repeat(2, 1fr); /* 2 columnas en pantallas pequeñas */
+  }
+  
+  .carrusel a img {
+    height: 140px;
+  }
+}
+
+@media (min-width: 768px) {
+  .portada {
+    height: 100vh;
+  }
+  
+  .imagen-portada {
+    width: auto;
+    min-width: 100%;
+    min-height: 100%;
+    object-fit: cover;
+  }
+  
+  .contenedor-stock {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+  }
+  
+  .stock-section {
+    padding: 60px 40px;
+  }
+  
+  .producto {
+    padding: 20px;
+  }
+  
+  .carrusel a img {
+    height: 150px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .contenedor-stock {
+    gap: 40px;
+  }
+}
