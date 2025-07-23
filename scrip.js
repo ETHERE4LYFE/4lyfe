@@ -1,15 +1,32 @@
 document.addEventListener('DOMContentLoaded', function () {
+  // Navegación entre secciones
+  const lyfeButton = document.getElementById('lyfe-button');
+  const backButton = document.getElementById('back-button');
+  const mainSection = document.getElementById('main-section');
+  const secondarySection = document.getElementById('secondary-section');
+
+  lyfeButton?.addEventListener('click', function () {
+    mainSection?.classList.add('hidden');
+    secondarySection?.classList.remove('hidden');
+  });
+
+  backButton?.addEventListener('click', function () {
+    secondarySection?.classList.add('hidden');
+    mainSection?.classList.remove('hidden');
+  });
+
+  // --------- Modal Productos ------------
   let productos = [];
   let productoActual = 0;
   let imagenActual = 0;
 
   function cargarProductos() {
-    productos = Array.from(document.querySelectorAll('.producto')).map(prod => ({
+    productos = Array.from(document.querySelectorAll('.producto')).map((prod) => ({
       nombre: prod.dataset.nombre,
       precio: prod.dataset.precio,
       medida: prod.dataset.medida,
       imagenes: JSON.parse(prod.dataset.imagenes),
-      elemento: prod
+      elemento: prod,
     }));
   }
 
@@ -30,6 +47,7 @@ document.addEventListener('DOMContentLoaded', function () {
     precio.textContent = producto.precio;
     medida.textContent = producto.medida;
 
+    // Miniaturas productos
     miniaturasCont.innerHTML = '';
     productos.forEach((prod, i) => {
       const mini = document.createElement('img');
@@ -46,12 +64,16 @@ document.addEventListener('DOMContentLoaded', function () {
 
   function cambiarImagen(dir) {
     const producto = productos[productoActual];
-    imagenActual = (imagenActual + dir + producto.imagenes.length) % producto.imagenes.length;
+    imagenActual += dir;
+    if (imagenActual < 0) imagenActual = producto.imagenes.length - 1;
+    if (imagenActual >= producto.imagenes.length) imagenActual = 0;
     document.getElementById('imagenGrande').src = producto.imagenes[imagenActual];
   }
 
   function cambiarProducto(dir) {
-    productoActual = (productoActual + dir + productos.length) % productos.length;
+    productoActual += dir;
+    if (productoActual < 0) productoActual = productos.length - 1;
+    if (productoActual >= productos.length) productoActual = 0;
     mostrarModal(productoActual, 0);
   }
 
@@ -59,20 +81,7 @@ document.addEventListener('DOMContentLoaded', function () {
     document.getElementById('modalProducto').style.display = 'none';
   }
 
-  function validar() {
-    const clave = document.getElementById("clave").value.toUpperCase();
-    const acceso = document.getElementById("acceso");
-    const mensaje = document.getElementById("mensaje");
-
-    if (clave === "ETHERE4LYFE") {
-      acceso.style.display = "none";
-    } else {
-      mensaje.textContent = "Contraseña incorrecta.";
-    }
-  }
-
-  window.validar = validar; // <-- para que pueda usarse desde el HTML inline
-
+  // Iniciar productos y eventos
   cargarProductos();
 
   productos.forEach((prod, i) => {
@@ -85,8 +94,21 @@ document.addEventListener('DOMContentLoaded', function () {
   document.getElementById('nextProducto').addEventListener('click', () => cambiarProducto(1));
   document.getElementById('cerrarModal').addEventListener('click', cerrarModal);
 
-  document.getElementById('modalProducto').addEventListener('click', e => {
+  document.getElementById('modalProducto').addEventListener('click', (e) => {
     if (e.target === e.currentTarget) cerrarModal();
   });
 });
+
+// ✅ HACEMOS validar() GLOBAL para que funcione con onclick en HTML
+window.validar = function () {
+  const clave = document.getElementById('clave').value.toUpperCase();
+  const acceso = document.getElementById('acceso');
+  const mensaje = document.getElementById('mensaje');
+
+  if (clave === 'ETHERE4LYFE') {
+    acceso.style.display = 'none';
+  } else {
+    mensaje.textContent = 'Contraseña incorrecta.';
+  }
+};
 
