@@ -5,6 +5,59 @@
   <title>etheere4l</title>
   <link rel="stylesheet" href="estilo.css" />
   <link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/css/lightbox.min.css" rel="stylesheet" />
+  <style>
+    /* Estilos para la pantalla de acceso */
+    .pantalla-acceso {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100vw;
+      height: 100vh;
+      background-color: #000;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+    }
+
+    .pantalla-acceso img {
+      width: 200px;
+      margin-bottom: 30px;
+      filter: drop-shadow(0 0 10px #fff);
+    }
+
+    .pantalla-acceso input {
+      padding: 10px;
+      font-size: 16px;
+      border: none;
+      border-radius: 5px;
+      margin-bottom: 15px;
+      outline: none;
+      background-color: #222;
+      color: white;
+      width: 200px;
+      text-align: center;
+      text-transform: uppercase;
+    }
+
+    .pantalla-acceso button {
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: white;
+      color: black;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: bold;
+      letter-spacing: 1px;
+    }
+
+    .pantalla-acceso p {
+      color: red;
+      margin-top: 10px;
+      font-size: 14px;
+    }
+  </style>
 </head>
 <body>
 
@@ -16,17 +69,19 @@
     <p id="mensaje"></p>
   </div>
 
-  <!-- Portada -->
+  <!-- Contenido normal de tu página -->
   <a href="#seccion2">
     <section class="portada">
       <img src="logo.png" alt="Portada" class="imagen-portada" />
     </section>
   </a>
 
-  <!-- Sección de productos -->
   <section id="seccion2" class="stock-section">
+  
+
     <div class="contenedor-stock">
-       <!-- Pulsera CH #1 -->
+
+      <!-- Pulsera CH #1 -->
       <div class="producto">
         <div class="carrusel">
           <a href="plsmodel1.png" data-lightbox="pulsera1" data-title="Pulsera CH 1">
@@ -190,40 +245,8 @@
 
     </div>
   </section>
-      <!-- Aquí van todos tus productos (sin cambios) -->
-      <!-- [Pegaste todos los productos correctamente aquí] -->
-      <!-- Mantenemos todo eso sin alterar ni las rutas -->
-    </div>
-  </section>
 
-  <!-- MODAL personalizado -->
-  <div id="productModal" class="modal hidden">
-    <div class="modal-overlay"></div>
-    <div class="modal-content">
-      <button class="modal-close">×</button>
-      <div class="modal-main">
-        <button class="modal-nav prev">‹</button>
-        <div class="modal-image-wrapper">
-          <img id="modalImage" src="" alt="" />
-        </div>
-        <button class="modal-nav next">›</button>
-      </div>
-      <div class="modal-details">
-        <h2 id="modalTitle"></h2>
-        <p id="modalPrice"></p>
-        <p id="modalSize"></p>
-        <p id="modalDescription"></p>
-      </div>
-      <div class="modal-related">
-        <h3>Productos relacionados</h3>
-        <div class="related-list" id="relatedList"></div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Scripts -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/js/lightbox.min.js"></script>
-  <script src="modal.js"></script>
   <script>
     function validar() {
       const clave = document.getElementById("clave").value.toUpperCase();
@@ -239,3 +262,4 @@
   </script>
 </body>
 </html>
+
