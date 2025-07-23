@@ -170,3 +170,15 @@ body {
     height: 100px;
   }
 }
+/* Estilo adicional para lightbox */
+.lb-data .lb-caption {
+  font-size: 16px !important;
+  line-height: 1.6 !important;
+  text-align: left !important;
+  color: #fff !important;
+}
+
+.lb-data .lb-number {
+  display: none; /* Oculta el contador de imagen */
+}
+
