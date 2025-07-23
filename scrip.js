@@ -112,11 +112,3 @@ function validar() {
     mensaje.textContent = "Contraseña incorrecta.";
   }
 }
-
-    if (clave === "ETHERE4LYFE") {
-      acceso.style.display = "none";
-    } else {
-      mensaje.textContent = "Contraseña incorrecta.";
-    }
-  };
-});
