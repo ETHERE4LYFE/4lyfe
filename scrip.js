@@ -101,10 +101,17 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 
   // Validar pantalla acceso (tu función original)
-  window.validar = function() {
-    const clave = document.getElementById("clave").value.toUpperCase();
-    const acceso = document.getElementById("acceso");
-    const mensaje = document.getElementById("mensaje");
+function validar() {
+  const clave = document.getElementById("clave").value.toUpperCase();
+  const acceso = document.getElementById("acceso");
+  const mensaje = document.getElementById("mensaje");
+
+  if (clave === "ETHERE4LYFE") {
+    acceso.style.display = "none";
+  } else {
+    mensaje.textContent = "Contraseña incorrecta.";
+  }
+}
 
     if (clave === "ETHERE4LYFE") {
       acceso.style.display = "none";
