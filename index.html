@@ -260,6 +260,29 @@
       }
     }
   </script>
+
+<!-- Modal de producto -->
+<div id="modalProducto" class="modal-producto oculto">
+  <div class="modal-contenido">
+    <button class="cerrar-modal">×</button>
+    <div class="modal-imagen">
+      <img id="imagenPrincipal" src="" alt="Producto Ampliado" />
+      <div class="flechas-navegacion">
+        <span id="flechaIzquierda">←</span>
+        <span id="flechaDerecha">→</span>
+      </div>
+    </div>
+    <div class="modal-detalles">
+      <h2 id="tituloProducto"></h2>
+      <p id="precioProducto"></p>
+      <p id="descripcionProducto"></p>
+    </div>
+    <div class="productos-relacionados">
+      <h3>También puede interesarte:</h3>
+      <div class="relacionados-contenedor" id="contenedorRelacionados"></div>
+    </div>
+  </div>
+</div>  
 </body>
 </html>
 
