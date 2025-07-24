@@ -1,22 +1,21 @@
-document.addEventListener('DOMContentLoaded', function() {
-    const lyfeButton = document.getElementById('lyfe-button');
-    const backButton = document.getElementById('back-button');
-    const mainSection = document.getElementById('main-section');
-    const secondarySection = document.getElementById('secondary-section');
-
-    // Ir a sección secundaria
-    lyfeButton.addEventListener('click', function() {
-        mainSection.classList.add('hidden');
-        secondarySection.classList.remove('hidden');
-    });
-
-    // Volver a sección principal
-    backButton.addEventListener('click', function() {
-        secondarySection.classList.add('hidden');
-        mainSection.classList.remove('hidden');
-    });
-});
 document.addEventListener('DOMContentLoaded', function () {
+  // Botones de navegación de secciones
+  const lyfeButton = document.getElementById('lyfe-button');
+  const backButton = document.getElementById('back-button');
+  const mainSection = document.getElementById('main-section');
+  const secondarySection = document.getElementById('secondary-section');
+
+  lyfeButton.addEventListener('click', function () {
+    mainSection.classList.add('hidden');
+    secondarySection.classList.remove('hidden');
+  });
+
+  backButton.addEventListener('click', function () {
+    secondarySection.classList.add('hidden');
+    mainSection.classList.remove('hidden');
+  });
+
+  // Modal de productos
   const productos = document.querySelectorAll('.producto');
   const modal = document.getElementById('modalProducto');
   const cerrar = document.querySelector('.cerrar-modal');
@@ -52,7 +51,7 @@ document.addEventListener('DOMContentLoaded', function () {
     precio.textContent = precioTexto;
     descripcion.textContent = descTexto;
 
-    // Productos relacionados
+    // Mostrar productos relacionados
     contenedorRelacionados.innerHTML = '';
     productosArray.forEach((p, idx) => {
       if (idx !== indice) {
