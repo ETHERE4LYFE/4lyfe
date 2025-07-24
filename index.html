@@ -293,11 +293,19 @@
     const precio = document.getElementById('precioProducto');
     const descripcion = document.getElementById('descripcionProducto');
     const relacionados = document.getElementById('contenedorRelacionados');
+    const flechaIzquierda = document.getElementById('flechaIzquierda');
+    const flechaDerecha = document.getElementById('flechaDerecha');
+
+    let imagenesActuales = [];
+    let indiceActual = 0;
 
     productos.forEach((producto, index) => {
       producto.addEventListener('click', () => {
-        const imgs = producto.querySelectorAll('img');
-        imagenPrincipal.src = imgs[0].src;
+        const enlaces = producto.querySelectorAll('a');
+        imagenesActuales = Array.from(enlaces).map(a => a.href);
+        indiceActual = 0;
+
+        imagenPrincipal.src = imagenesActuales[indiceActual];
 
         titulo.textContent = producto.querySelector('h2')?.textContent || '';
         precio.textContent = producto.querySelectorAll('p')[0]?.textContent || '';
@@ -320,8 +328,23 @@
     });
 
     cerrarBtn.addEventListener('click', () => modal.classList.add('oculto'));
+
+    flechaIzquierda.addEventListener('click', () => {
+      if (imagenesActuales.length > 0) {
+        indiceActual = (indiceActual - 1 + imagenesActuales.length) % imagenesActuales.length;
+        imagenPrincipal.src = imagenesActuales[indiceActual];
+      }
+    });
+
+    flechaDerecha.addEventListener('click', () => {
+      if (imagenesActuales.length > 0) {
+        indiceActual = (indiceActual + 1) % imagenesActuales.length;
+        imagenPrincipal.src = imagenesActuales[indiceActual];
+      }
+    });
   });
 </script>
+
   
 </body>
 </html>
