@@ -283,6 +283,49 @@
   </div>
 </div>
 
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const productos = document.querySelectorAll('.producto');
+    const modal = document.getElementById('modalProducto');
+    const cerrarBtn = modal.querySelector('.cerrar-modal');
+    const imagenPrincipal = document.getElementById('imagenPrincipal');
+    const titulo = document.getElementById('tituloProducto');
+    const precio = document.getElementById('precioProducto');
+    const descripcion = document.getElementById('descripcionProducto');
+    const relacionados = document.getElementById('contenedorRelacionados');
+
+    productos.forEach((producto, index) => {
+      producto.addEventListener('click', () => {
+        const imgs = producto.querySelectorAll('img');
+        imagenPrincipal.src = imgs[0].src;
+
+        titulo.textContent = producto.querySelector('h2')?.textContent || '';
+        precio.textContent = producto.querySelectorAll('p')[0]?.textContent || '';
+        descripcion.textContent = producto.querySelectorAll('p')[1]?.textContent || '';
+
+        relacionados.innerHTML = '';
+        productos.forEach((rel, i) => {
+          if (i !== index) {
+            const imgRel = rel.querySelector('img');
+            const divRel = document.createElement('div');
+            divRel.className = 'relacionado';
+            divRel.innerHTML = `<img src="${imgRel.src}" alt="Relacionado" />`;
+            divRel.addEventListener('click', () => rel.click());
+            relacionados.appendChild(divRel);
+          }
+        });
+
+        modal.classList.remove('oculto');
+      });
+    });
+
+    cerrarBtn.addEventListener('click', () => modal.classList.add('oculto'));
+  });
+</script>
+
+
+  
+
 </body>
 </html>
 
