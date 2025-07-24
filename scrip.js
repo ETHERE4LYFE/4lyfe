@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', function () {
-  // Botones de navegación de secciones
+  // Cambio de sección principal/secundaria
   const lyfeButton = document.getElementById('lyfe-button');
   const backButton = document.getElementById('back-button');
   const mainSection = document.getElementById('main-section');
@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', function () {
     mainSection.classList.remove('hidden');
   });
 
-  // Modal de productos
+  // Modal de producto
   const productos = document.querySelectorAll('.producto');
   const modal = document.getElementById('modalProducto');
   const cerrar = document.querySelector('.cerrar-modal');
@@ -29,6 +29,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
   let indiceActual = 0;
   let productosArray = [];
+  let imagenesProductoActual = [];
+  let indiceImagenActual = 0;
 
   productos.forEach((producto, i) => {
     productosArray.push(producto);
@@ -41,12 +43,17 @@ document.addEventListener('DOMContentLoaded', function () {
   function mostrarProducto(indice) {
     indiceActual = indice;
     const producto = productosArray[indice];
-    const img = producto.querySelector('.carrusel img');
+
+    // Captura todas las imágenes del carrusel del producto actual
+    const carruselImgs = producto.querySelectorAll('.carrusel img');
+    imagenesProductoActual = Array.from(carruselImgs);
+    indiceImagenActual = 0;
+    mostrarImagenActual();
+
     const tituloTexto = producto.querySelector('h2').textContent;
     const precioTexto = producto.querySelectorAll('p')[0].textContent;
     const descTexto = producto.querySelectorAll('p')[1]?.textContent || '';
 
-    imagenPrincipal.src = img.src;
     titulo.textContent = tituloTexto;
     precio.textContent = precioTexto;
     descripcion.textContent = descTexto;
@@ -66,17 +73,27 @@ document.addEventListener('DOMContentLoaded', function () {
     modal.classList.remove('oculto');
   }
 
+  function mostrarImagenActual() {
+    if (imagenesProductoActual.length > 0) {
+      imagenPrincipal.src = imagenesProductoActual[indiceImagenActual].src;
+    }
+  }
+
   cerrar.addEventListener('click', () => {
     modal.classList.add('oculto');
   });
 
   flechaIzq.addEventListener('click', () => {
-    let nuevo = (indiceActual - 1 + productosArray.length) % productosArray.length;
-    mostrarProducto(nuevo);
+    if (imagenesProductoActual.length > 0) {
+      indiceImagenActual = (indiceImagenActual - 1 + imagenesProductoActual.length) % imagenesProductoActual.length;
+      mostrarImagenActual();
+    }
   });
 
   flechaDer.addEventListener('click', () => {
-    let nuevo = (indiceActual + 1) % productosArray.length;
-    mostrarProducto(nuevo);
+    if (imagenesProductoActual.length > 0) {
+      indiceImagenActual = (indiceImagenActual + 1) % imagenesProductoActual.length;
+      mostrarImagenActual();
+    }
   });
 });
