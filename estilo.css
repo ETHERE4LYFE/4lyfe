@@ -215,6 +215,19 @@ body {
   color: white;
   cursor: pointer;
 }
+#flechaIzquierda, #flechaDerecha {
+  background: rgba(0, 0, 0, 0.5);
+  padding: 10px;
+  border-radius: 50%;
+  user-select: none;
+  z-index: 10;
+  transition: background 0.3s;
+}
+
+#flechaIzquierda:hover, #flechaDerecha:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
 
 .cerrar-modal {
   position: absolute;
